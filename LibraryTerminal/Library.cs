@@ -34,7 +34,12 @@ namespace LibraryTerminal
                 new Book("The Road Less Traveled", "Robert Frost", Genre.Poetry, false)
             };
         }
+        public void PrintWholeList()
+        {
+            PrintBooks();
+            Console.WriteLine();
 
+        }
         public void DisplayAvailableBooks()
         {
   
@@ -57,7 +62,7 @@ namespace LibraryTerminal
 
         public void CheckOutBookByGenre()
         {
-            Genre selectedGenre;
+            Genre selectedGenre = 0;
 
             Console.WriteLine("\nAh so you would like to check out a book, great! \nPlease input your choice: ");
             string genre = Console.ReadLine().ToLower().Trim();
@@ -106,13 +111,13 @@ namespace LibraryTerminal
 
             foreach (Book book in Books)
             {
-                if (book.Genre = Genre.selectedGenre));
+                if (book.Genre == selectedGenre)
 
                 {
                     if (book.CheckedOut == false)
                     {
-                        Console.WriteLine("Perfect, that book is available");
-                        Console.WriteLine("Would you like to check the book out? y/n");
+                        Console.WriteLine("Perfect, books of that genre is available");
+                        Console.WriteLine("Would you like to check out one of the books out? y/n");
                         string input = Console.ReadLine();
                         if (input == "y")
                         {
@@ -126,8 +131,7 @@ namespace LibraryTerminal
         }
         public void CheckOutBookByAuthor()
         {
-
-            Console.WriteLine("\nAh so you would like to check out a book, great!");
+            Console.WriteLine("\nAh so you would like to check out a book by a specific author, great!");
            
             Console.WriteLine("\nPlease input your choice: ");
             string author = Console.ReadLine().ToLower().Trim();
@@ -139,7 +143,7 @@ namespace LibraryTerminal
 
                     if (book.CheckedOut == false)
                     {
-                        Console.WriteLine("Perfect, that book is available");
+                        Console.WriteLine("Perfect, their book is available");
                         Console.WriteLine("Would you like to check the book out? y/n");
                         string input = Console.ReadLine();
                         if (input == "y")
@@ -215,7 +219,7 @@ namespace LibraryTerminal
 
             for (int i = 0; i < Books.Count; i++)
             {
-                Console.WriteLine($"{i + 1}) {Books[i].Title}");
+                Console.WriteLine($"{i + 1}) {Books[i].Title} written by {Books[i].Author}");
             }
         }
 
